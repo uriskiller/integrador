@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/alertify.min.js"></script>
+
+
+    <meta charset="UTF-8">
+    <title>Response</title>
+</head>
+<style>
+  .blockquote2{
+  margin: 20px 0;
+  padding-left: 1.5rem;
+  border-left: 5px solid #64b5f6; /* Just change the color value and that's it*/
+}
+</style>
+<body>
+	 <nav>
+    <div class="nav-wrapper blue-grey lighten-1">
+        <a  class="brand-logo left">EATech</a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="/" >Inicio</a></li>
+          <li><a href="Admin" >Administrador</a></li>
+          <li><a href="#" data-activates="mobile-demo" class="button-collapse show-on-large">Estacionamiento</a></li>
+            <!-- Dropdown Trigger -->
+            <li><a class="dropdown-button" href="/Cuenta" data-activates="dropdown" data-beloworigin="true">Mi cuenta<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+        </ul>
+              <ul class="side-nav" id="mobile-demo">
+        <li class="grey"><a >Tipos</a></li>
+        <li><a href="{{url_for('indexw', fil='Carro')}}">Sedan</a></li>
+        <li><a href="{{url_for('indexw', fil='Camioneta')}}">Camionetas</a></li>
+        <li><a href="{{url_for('indexw', fil='Motocicleta')}}">Motos</a></li>
+      </ul>
+    </div>
+</nav>
+
+<!-- Dropdown Structure -->
+<ul id="dropdown" class="dropdown-content collection">
+  <li><a href="{{url_for('logout')}}" id="fun">Salir</a></li>
+   
+</ul>
+
+<script>
+  (function($) {
+    $(function() {
+
+$('.dropdown-button').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      hover: true, // Activate on hover
+      belowOrigin: true, // Displays dropdown below the button
+      alignment: 'left' // Displays dropdown with edge aligned to the left of button
+    }
+  );
+
+    }); // End Document Ready
+})(jQuery); // End of jQuery name space
+</script>
+
+
+  <script type="text/javascript">
+    $(".button-collapse").sideNav();
+  </script>
+
+
+<div class="row">
+  <div class="col s4 offset-s4" >
+  	<span class="white"> 		
+
+  	<h2 class="center blue-grey lighten-1">Atributos</h2>
+
+  	  	</span>
+<ul>
+	<center>
+{% for x in pred %}
+<blockquote>
+    <li>{{ x }}</li>
+</blockquote>
+{% endfor %}
+	</center>
+</ul>
+
+		  <img src="{{ url_for('static', filename='plot_.png' ) }}">
+
+
+<center>
+ <h5>Datos de ingreso</h5> 
+ <br><br>
+</center>
+
+
+<div class="col s6 ">
+<blockquote class="blockquote2">
+<p>Tipo: {{ variable }}</p>
+<p>Hora de entrada: {{ tiempo }}</p>
+<p>No. Boleto: {{ bol }}</p>
+<blockquote> 
+</div>
+<div class="col s6 ">
+
+<p>Cuota X Hora: {{ cuota }}</p>
+<p>Seccion: {{ seccion }}</p>
+      </div>
+
+</div>
+
+
+</body>
+</html>

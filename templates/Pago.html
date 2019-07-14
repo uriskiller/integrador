@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Response</title>
+  <!-- Compiled and minified CSS -->
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css'>
+
+  <!-- Compiled and minified JavaScript -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js'></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <nav class="blue-grey lighten-1">
+  	<div class="nav-wrapper">
+  		<a href="#!" class="brand-logo">EATech</a>
+  		<!-- activate side-bav in mobile view -->
+
+  		</ul>
+
+  	</div>
+  </nav>
+
+  <br><br>
+
+<div class="row">
+  <div class="col s2 offset-s5 ">
+    <h4 class="center-align blue-grey lighten-1 white-text" id="ht">Boleto pagado</h4>
+  </div>
+</div>
+
+  <div class="row">
+    <div class="col s1 m1 l1 offset-s5 " id="dp">
+      <p class="left-align">Estatus:</p>
+      <p class="left-align">Total:</p>
+      <p class="left-align">Hora de Pago:</p>
+     
+    </div>
+      <div class="col s1 " id="dr">
+          <p class="green-text">{{status}}</p>
+          <p>{{total}}</p>
+          <p>{{fpago}}</p>
+
+         </div>
+
+      </div>
+      <div class="row">
+
+        <div class="col s2 offset-s5" id="btnp">
+        	<p class="red-text center-align " style="font-size: 12px;"> USTED TIENE 10 MIN PARA SALIR..</p>
+          <a href="http://localhost:5000/convert"><input type="button" class="btn " value="Ticket" ></a>
+        </div>
+      </div>
+      <p>{{boleto}}</p>
+
+  </div>
+
+  <script type="text/javascript">
+    function ticket() {
+     alert("Generando ticket..")
+
+
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+
+<!doctype html>
+<html>
+<head>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+	<body >
+		<style media="screen">
+			body{
+			}
+		</style>
+    <script >
+
+    function tensor(){
+
+		imagen = '<img class="responsive-img" align="center" src="{{ url_for('calc2') }}" style="width: 950px; height: 600px;"/>'
+
+		document.getElementById('imagencargando').innerHTML = imagen;
+		document.getElementById('top_text').innerHTML = "Web Cam";
+
+    }
+
+		function stop(){
+			p = imagencargando.parentNode;
+			p.removeChild(imagencargando);
+			window.location="/Admin";
+		}
+
+		function imagen() {
+		   alert("Abriendo imagen..");
+			 p = yolo.parentNode;
+			 p.removeChild(yolo);
+
+		}
+
+		function pu(){
+			alert(document.getElementById('path').value);
+		}
+
+    </script>
+
+
+
+	<nav>
+    <div class="nav-wrapper blue-grey lighten-1">
+        <a  class="brand-logo left">EATech</a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="/" >Inicio</a></li>
+          <li><a href="Admin" >Administrador</a></li>
+          <li><a href="#" data-activates="mobile-demo" class="button-collapse show-on-large">Estacionamiento</a></li>
+            <!-- Dropdown Trigger -->
+            <li><a class="dropdown-button" href="/Cuenta" data-activates="dropdown" data-beloworigin="true">Mi cuenta<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+        </ul>
+              <ul class="side-nav" id="mobile-demo">
+        <li class="grey"><a >Tipos</a></li>
+        <li><a href="{{url_for('indexw', fil='Carro')}}">Sedan</a></li>
+        <li><a href="{{url_for('indexw', fil='Camioneta')}}">Camionetas</a></li>
+        <li><a href="{{url_for('indexw', fil='Motocicleta')}}">Motos</a></li>
+      </ul>
+    </div>
+</nav>
+
+<!-- Dropdown Structure -->
+<ul id="dropdown" class="dropdown-content collection">
+  <li><a href="{{url_for('logout')}}" id="fun">Salir</a></li>
+
+</ul>
+
+<script>
+  (function($) {
+    $(function() {
+
+$('.dropdown-button').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      hover: true, // Activate on hover
+      belowOrigin: true, // Displays dropdown below the button
+      alignment: 'left' // Displays dropdown with edge aligned to the left of button
+    }
+  );
+
+    }); // End Document Ready
+})(jQuery); // End of jQuery name space
+</script>
+
+
+  <script type="text/javascript">
+  	$(".button-collapse").sideNav();
+  </script>
+
+<div class="row">
+  <div class="col s6 offset-s3">
+    <h1 id="top_text"class="center grey">Administrador</h1>
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col s6 offset-s3 card-panel hoverable " id="imagencargando">
+  <img src="https://k02.kn3.net/CE9BA1649.jpg" alt="" style="width: 950px; height: 600px;"><br>
+
+  </div>
+  <div class="col s6 offset-s3  " id="2">
+
+  <ul id="slide-out" class="sidenav sidenav-fixed center">
+  <br>
+     <i class="medium material-icons"><a href="javascript:tensor()">video_call</a></i>
+     <i class="medium material-icons"><a href="javascript:stop()">stop</a></i>
+     <i class="medium material-icons"><a href="/AdminYolo">image</a></i>
+
+   </ul>
+ </div>
+
+
+
+
+
+
+
+</div>
+
+
+	</body>
+</html>
